@@ -1,1 +1,363 @@
-<!DOCTYPE html><html><head><meta charset='UTF-8'><meta name='viewport' content='width=device-width, initial-scale=1.0'><title>THE JUSTICE - Batman Legal Chatbot from Gotham</title><style>@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap');*{margin:0;padding:0;box-sizing:border-box}@keyframes gothamFlicker{0%{opacity:1}50%{opacity:0.8}100%{opacity:1}}@keyframes batFly{0%{transform:translateX(-100%) scale(0.5);opacity:0}50%{transform:translateX(0) scale(1);opacity:1}100%{transform:translateX(100%) scale(0.5);opacity:0}}@keyframes glow{0%{box-shadow:0 0 5px #FFD700;text-shadow:0 0 10px #FFD700}50%{box-shadow:0 0 20px #FFD700;text-shadow:0 0 20px #FFD700}100%{box-shadow:0 0 5px #FFD700;text-shadow:0 0 10px #FFD700}}@keyframes slideIn{from{transform:translateY(20px);opacity:0}to{transform:translateY(0);opacity:1}}@keyframes pulse{0%,100%{opacity:1}50%{opacity:0.7}}@keyframes lawGlow{0%{color:#FFD700}50%{color:#FFA500}100%{color:#FFD700}}body{background:linear-gradient(135deg,#0a0e27 0%,#0f1a2e 25%,#1a1a2e 50%,#0f1a2e 75%,#0a0e27 100%);background-attachment:fixed;font-family:'Arial',sans-serif;color:#fff;min-height:100vh;display:flex;justify-content:center;align-items:center;padding:20px;position:relative;overflow:hidden}.gotham-overlay{position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;opacity:0.1;background-image:repeating-linear-gradient(0deg,#FFD700 0px,#FFD700 1px,transparent 1px,transparent 2px);z-index:1}::before{content:'GOTHAM CITY JUSTICE SYSTEM';position:fixed;top:10px;right:20px;font-size:0.7em;color:#FFD700;opacity:0.3;letter-spacing:2px}.container{width:100%;max-width:900px;background:linear-gradient(145deg,#0a1020,#1a2a40);border:4px solid #FFD700;border-radius:15px;box-shadow:0 0 60px rgba(255,215,0,0.4),inset 0 0 40px rgba(255,215,0,0.1);overflow:hidden;z-index:10;animation:slideIn 0.8s ease-out;position:relative}.header{background:linear-gradient(90deg,#000 0%,#1a1a1a 25%,#2a2a2a 50%,#1a1a1a 75%,#000 100%);padding:40px;text-align:center;border-bottom:3px solid #FFD700;position:relative;animation:gothamFlicker 2s infinite}.batman-symbol{font-size:60px;margin-bottom:15px;display:inline-block;animation:pulse 1.5s ease-in-out infinite;filter:drop-shadow(0 0 10px #FFD700)}h1{font-size:2.8em;font-weight:bold;color:#FFD700;text-shadow:0 0 15px #FFD700,0 0 30px #0066CC,0 0 40px #000;letter-spacing:4px;animation:glow 2s ease-in-out infinite;font-family:'Playfair Display',serif;margin-bottom:10px}.subtitle{color:#0066CC;font-size:1em;margin-top:8px;font-style:italic;letter-spacing:2px;animation:lawGlow 3s ease-in-out infinite}.law-symbols{display:flex;justify-content:center;gap:15px;margin-top:10px;font-size:1.2em;flex-wrap:wrap}.law-symbol{animation:pulse 2s ease-in-out infinite;opacity:0.7}.chat-container{height:500px;overflow-y:auto;padding:25px;background:linear-gradient(to bottom,#0a0e27 0%,#1a1a2e 50%,#0a0e27 100%);display:flex;flex-direction:column;gap:12px;position:relative}.chat-container::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background-image:radial-gradient(circle at 20% 50%, rgba(255,215,0,0.03) 0%, transparent 50%),radial-gradient(circle at 80% 80%, rgba(0,102,204,0.03) 0%, transparent 50%);pointer-events:none}.message{padding:15px 20px;border-radius:12px;max-width:85%;animation:slideIn 0.4s ease-out;position:relative;z-index:2;border-left:5px solid #FFD700}.user-message{align-self:flex-end;background:linear-gradient(135deg,#0066CC,#004499);border-left:5px solid #FFD700;box-shadow:0 4px 15px rgba(0,102,204,0.4);}.bot-message{align-self:flex-start;background:linear-gradient(135deg,#1a1a1a,#2d2d2d);border-left:5px solid #FFD700;box-shadow:0 4px 15px rgba(255,215,0,0.2);}.bot-message::before{content:'⚖️ ';margin-right:8px;font-weight:bold;animation:pulse 1.5s ease-in-out infinite}.input-section{padding:25px;background:linear-gradient(90deg,#0f1419,#1a1f2e);border-top:3px solid #FFD700;display:flex;gap:12px}.input-box{flex:1;padding:15px;background:#0a0e27;border:2px solid #FFD700;border-radius:10px;color:#FFD700;font-size:1em;outline:none;transition:all 0.3s;font-weight:bold}.input-box:focus{box-shadow:0 0 20px #FFD700,inset 0 0 15px rgba(255,215,0,0.2);border-color:#FFA500}.input-box::placeholder{color:#806600}.send-btn{padding:15px 35px;background:linear-gradient(135deg,#FFD700,#FFA500);color:#000;border:none;border-radius:10px;font-weight:bold;cursor:pointer;font-size:1em;transition:all 0.3s;box-shadow:0 4px 15px rgba(255,215,0,0.4);}.send-btn:hover{transform:scale(1.08);box-shadow:0 6px 25px rgba(255,215,0,0.6);background:linear-gradient(135deg,#FFA500,#FFD700)}.send-btn:active{transform:scale(0.95)}.suggested{display:flex;flex-wrap:wrap;gap:10px;padding:0 25px;margin-bottom:10px;justify-content:center}.suggested-btn{padding:12px 18px;background:linear-gradient(135deg,#1a1a1a,#2d2d2d);border:2px solid #FFD700;color:#FFD700;border-radius:8px;cursor:pointer;font-size:0.85em;transition:all 0.3s;font-weight:bold}.suggested-btn:hover{background:linear-gradient(135deg,#FFD700,#FFA500);color:#000;box-shadow:0 0 20px #FFD700;transform:translateY(-2px)}.suggested-btn:active{transform:translateY(0)}.footer{text-align:center;padding:15px;font-size:0.85em;color:#806600;border-top:1px solid #FFD700}</style></head><body><div class='gotham-overlay'></div><div class='container'><div class='header'><div class='batman-symbol'>🦹‍♂️</div><h1>THE JUSTICE</h1><p class='subtitle'>BATMAN'S LEGAL SYSTEM - GOTHAM CITY</p><div class='law-symbols'><span class='law-symbol'>⚖️</span><span class='law-symbol'>📜</span><span class='law-symbol'>🔗</span><span class='law-symbol'>⚡</span><span class='law-symbol'>🛡️</span></div></div><div class='chat-container' id='chatContainer'><div class='bot-message'>Greetings. I am Batman, protector of Gotham. I provide legal guidance through THE JUSTICE system. Ask me anything about employment rights, contracts, IP, tenant rights, and more. Every citizen deserves JUSTICE.</div></div><div class='suggested'><button class='suggested-btn' onclick="askQuestion('What are my rights if wrongfully terminated?')">⚖️ Employment Rights</button><button class='suggested-btn' onclick="askQuestion('What is a breach of contract?')">📜 Contract Law</button><button class='suggested-btn' onclick="askQuestion('What is intellectual property?')">🔗 IP Rights</button><button class='suggested-btn' onclick="askQuestion('What are tenant rights?')">🛡️ Tenant Rights</button></div><div class='input-section'><input type='text' class='input-box' id='userInput' placeholder='Seek JUSTICE in Gotham...' onkeypress='if(event.key==="Enter")sendMessage()'><button class='send-btn' onclick='sendMessage()'>⚡ JUSTICE</button></div><div class='footer'>GOTHAM CITY JUSTICE SYSTEM | Powered by Batman's Legacy</div></div><script>const legalDatabase={"wrongfully terminated":"If you're wrongfully terminated, you may have legal claims for breach of employment contract, wrongful dismissal, or retaliation. Document all communications, gather evidence of discrimination or breach, and consult an employment lawyer. You may be entitled to severance, back pay, and damages.","wrongful termination":"Wrongful termination occurs when an employee is fired for illegal reasons such as discrimination, retaliation for reporting violations, refusal to break laws, or whistleblowing. It violates employment laws and public policy.","breach of contract":"A breach of contract happens when one party fails to fulfill their obligations as stated in a binding agreement. Types: material breach (fundamental failure) and minor breach (partial performance). Remedies include damages, specific performance, or rescission.","intellectual property":"Intellectual property (IP) includes patents, trademarks, copyrights, and trade secrets. Patents protect inventions for 20 years, trademarks protect brands, copyrights protect creative works, and trade secrets protect confidential business information.","tenant rights":"Tenants have rights including: habitable premises, privacy, freedom from harassment, protection from illegal eviction, security deposit return, and reasonable notice for termination. Landlords must maintain property and follow eviction procedures.","landlord responsibilities":"Landlords must maintain habitable conditions, make repairs timely, provide privacy to tenants, follow legal eviction procedures, return security deposits, and comply with fair housing laws. Failure to do so may lead to legal liability.","consumer protection":"Consumer protection laws prevent fraud, deceptive practices, and unfair trade. They cover product safety, warranties, credit practices, debt collection, and privacy. Remedies include refunds, damages, and regulatory action by agencies.","divorce settlement":"Divorce settlements address asset division, child custody, child support, and spousal maintenance. Factors include marriage length, income, contributions, and children's best interests. Courts use equitable distribution or community property laws depending on jurisdiction.","criminal law":"Criminal law addresses offenses against society like theft, assault, and homicide. Key elements: guilty beyond reasonable doubt, constitutional rights protection, and proportionate sentencing. Defenses include self-defense, insanity, and duress.","inheritance":"A will is a legal document stating how your estate is distributed after death. Inheritance laws determine distribution if there's no will. Elements include valid will, proof of execution, and probate. Executors manage the process.","discrimination":"Employment discrimination based on race, gender, age, religion, disability, or national origin is illegal. Protections vary by jurisdiction. Remedies include back pay, reinstatement, damages, and injunctions against discriminatory practices.","defamation":"Defamation is publishing false statements that harm someone's reputation. Types: libel (written) and slander (spoken). Defenses include truth, opinion, and privilege. Damages cover lost earnings and emotional harm.","labor law":"Labor laws regulate working conditions, wages, hours, safety, and collective bargaining. They protect workers' rights including minimum wage, overtime, safe conditions, and freedom to unionize. Enforcement through department of labor.","property rights":"Property rights include ownership, possession, use, and enjoyment of real or personal property. You can sell, lease, or transfer rights. Boundaries are set by law; nuisance laws prevent harmful interference with neighbors' property."};function sendMessage(){const input=document.getElementById('userInput');const message=input.value.trim();if(!message)return;addMessage(message,'user');input.value='';setTimeout(()=>{const response=getResponse(message);addMessage(response,'bot')},600)}function addMessage(text,sender){const container=document.getElementById('chatContainer');const messageDiv=document.createElement('div');messageDiv.className=sender==='user'?'message user-message':'message bot-message';messageDiv.textContent=text;container.appendChild(messageDiv);container.scrollTop=container.scrollHeight}function getResponse(userQuery){const query=userQuery.toLowerCase();for(let key in legalDatabase){if(query.includes(key)){return legalDatabase[key]}}return"In the darkness of Gotham, I say this: Your legal question requires more specific guidance. Try asking about: employment rights, contracts, intellectual property, tenant rights, landlord responsibilities, consumer protection, divorce, criminal law, inheritance, discrimination, defamation, labor law, or property rights. JUSTICE will be served."}function askQuestion(question){document.getElementById('userInput').value=question;sendMessage()}</script></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>THE JUSTICE - Batman Legal Chatbot</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0a0e27 0%, #1a1f3a 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            color: #e0e0e0;
+        }
+
+        .container {
+            max-width: 800px;
+            width: 100%;
+            background: linear-gradient(135deg, #0f1428 0%, #1a1f3a 100%);
+            border: 3px solid #ffd700;
+            border-radius: 15px;
+            box-shadow: 0 0 30px rgba(255, 215, 0, 0.3), inset 0 0 20px rgba(255, 215, 0, 0.1);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            height: 90vh;
+            max-height: 900px;
+        }
+
+        /* HEADER SECTION */
+        .header {
+            background: linear-gradient(135deg, #1a2547 0%, #0f1428 100%);
+            padding: 30px 25px;
+            border-bottom: 2px solid #ffd700;
+            text-align: center;
+        }
+
+        .header-subtitle {
+            font-size: 12px;
+            color: #ffd700;
+            letter-spacing: 3px;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+
+        .header-title {
+            font-size: 42px;
+            font-weight: 900;
+            color: #ffd700;
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.8), 0 2px 5px rgba(0, 0, 0, 0.5);
+            margin-bottom: 8px;
+            letter-spacing: 2px;
+        }
+
+        .header-subtitle-2 {
+            font-size: 13px;
+            color: #b8860b;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+        }
+
+        .symbols {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            font-size: 20px;
+            margin-bottom: 5px;
+        }
+
+        /* CHAT DISPLAY AREA */
+        .chat-display {
+            flex: 1;
+            overflow-y: auto;
+            padding: 25px;
+            background: linear-gradient(to bottom, #0f1428 0%, #1a1f3a 100%);
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .chat-display::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .chat-display::-webkit-scrollbar-track {
+            background: rgba(255, 215, 0, 0.1);
+        }
+
+        .chat-display::-webkit-scrollbar-thumb {
+            background: #ffd700;
+            border-radius: 4px;
+        }
+
+        .message {
+            display: flex;
+            padding: 12px 15px;
+            border-radius: 8px;
+            font-size: 14px;
+            line-height: 1.5;
+            word-wrap: break-word;
+        }
+
+        .bot-message {
+            background: rgba(255, 215, 0, 0.15);
+            border-left: 4px solid #ffd700;
+            color: #e0e0e0;
+            align-self: flex-start;
+            max-width: 85%;
+            box-shadow: 0 2px 8px rgba(255, 215, 0, 0.2);
+        }
+
+        .user-message {
+            background: rgba(70, 130, 180, 0.3);
+            border-left: 4px solid #4682b4;
+            color: #e0e0e0;
+            align-self: flex-end;
+            max-width: 85%;
+            box-shadow: 0 2px 8px rgba(70, 130, 180, 0.2);
+        }
+
+        /* QUESTIONS SECTION */
+        .questions-section {
+            padding: 20px 25px;
+            border-top: 2px solid #ffd700;
+            background: linear-gradient(to bottom, #0f1428 0%, #1a1f3a 50%);
+        }
+
+        .questions-label {
+            font-size: 11px;
+            color: #ffd700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+
+        .questions-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+
+        .question-btn {
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.2) 0%, rgba(184, 134, 11, 0.2) 100%);
+            border: 1px solid #ffd700;
+            color: #ffd700;
+            padding: 10px 12px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 11px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            text-align: center;
+            line-height: 1.3;
+        }
+
+        .question-btn:hover {
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.35) 0%, rgba(184, 134, 11, 0.35) 100%);
+            box-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+            transform: translateY(-2px);
+        }
+
+        .question-btn:active {
+            transform: translateY(0);
+        }
+
+        /* INPUT SECTION */
+        .input-section {
+            padding: 15px 25px;
+            background: #0f1428;
+            border-top: 2px solid #ffd700;
+            display: flex;
+            gap: 10px;
+        }
+
+        .input-field {
+            flex: 1;
+            background: rgba(255, 215, 0, 0.1);
+            border: 1px solid #ffd700;
+            color: #e0e0e0;
+            padding: 12px 15px;
+            border-radius: 6px;
+            font-size: 13px;
+            transition: all 0.3s ease;
+        }
+
+        .input-field::placeholder {
+            color: rgba(255, 215, 0, 0.6);
+        }
+
+        .input-field:focus {
+            outline: none;
+            background: rgba(255, 215, 0, 0.15);
+            box-shadow: 0 0 8px rgba(255, 215, 0, 0.4);
+        }
+
+        .send-btn {
+            background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%);
+            border: none;
+            color: #000;
+            padding: 12px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 700;
+            font-size: 13px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
+        }
+
+        .send-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 215, 0, 0.5);
+        }
+
+        .send-btn:active {
+            transform: translateY(0);
+        }
+
+        /* ANIMATIONS */
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes glowPulse {
+            0%, 100% { text-shadow: 0 0 10px rgba(255, 215, 0, 0.8); }
+            50% { text-shadow: 0 0 20px rgba(255, 215, 0, 1); }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .message {
+            animation: slideIn 0.4s ease;
+        }
+
+        .header-title {
+            animation: glowPulse 3s ease-in-out infinite;
+        }
+
+        .question-btn {
+            animation: fadeIn 0.6s ease;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- HEADER -->
+        <div class="header">
+            <div class="header-subtitle">⚡ Batman's Legal System ⚡</div>
+            <div class="header-title">🦹‍♂️ THE JUSTICE 🦹‍♂️</div>
+            <div class="header-subtitle-2">GOTHAM CITY LEGAL ASSISTANT</div>
+            <div class="symbols">⚖️ 📜 🔗 ⚡ 🛡️</div>
+        </div>
+
+        <!-- CHAT DISPLAY -->
+        <div class="chat-display" id="chatDisplay">
+            <div class="message bot-message">
+                Greetings, Citizen. I am Batman, protector of Gotham. I provide legal guidance through THE JUSTICE system. Ask me about employment rights, contracts, IP protection, tenant rights, and more. Every citizen deserves JUSTICE. 📜⚖️
+            </div>
+        </div>
+
+        <!-- QUESTIONS GRID -->
+        <div class="questions-section">
+            <div class="questions-label">📋 Popular Legal Topics:</div>
+            <div class="questions-grid">
+                <button class="question-btn" onclick="askQuestion('What are my rights as an employee?')">Employee Rights</button>
+                <button class="question-btn" onclick="askQuestion('How do I draft a contract?')">Contract Drafting</button>
+                <button class="question-btn" onclick="askQuestion('What is intellectual property?')">Intellectual Property</button>
+                <button class="question-btn" onclick="askQuestion('What are tenant rights?')">Tenant Rights</button>
+                <button class="question-btn" onclick="askQuestion('How do I start a business?')">Business Formation</button>
+                <button class="question-btn" onclick="askQuestion('What is copyright protection?')">Copyright Protection</button>
+                <button class="question-btn" onclick="askQuestion('What should be in a lease agreement?')">Lease Agreement</button>
+                <button class="question-btn" onclick="askQuestion('How do I handle disputes?')">Dispute Resolution</button>
+            </div>
+        </div>
+
+        <!-- INPUT SECTION -->
+        <div class="input-section">
+            <input type="text" class="input-field" id="userInput" placeholder="Ask THE JUSTICE anything... ⚖️" onkeypress="handleKeyPress(event)">
+            <button class="send-btn" onclick="sendMessage()">ASK</button>
+        </div>
+    </div>
+
+    <script>
+        // Legal Q&A Database
+        const legalQA = {
+            'employee': 'Employees have rights including fair wages, safe working conditions, freedom from discrimination, and the right to organize. Employers must follow labor laws.',
+            'contract': 'A contract requires offer, acceptance, consideration, and mutual intent. Key elements: parties, terms, conditions, signatures. All must be in writing for validity.',
+            'intellectual property': 'Intellectual Property includes Patents (inventions), Copyrights (creative works), Trademarks (brands), and Trade Secrets. Each requires different protection.',
+            'tenant': 'Tenants have rights to habitable housing, privacy, security deposit return, and fair eviction procedures. Landlords must maintain properties and follow lease terms.',
+            'business': 'Business formation requires: selecting structure (sole proprietorship, LLC, corporation), registering name, obtaining licenses, and setting up tax IDs.',
+            'copyright': 'Copyright protects original works like books, music, and software. It gives creators exclusive rights to reproduce, distribute, and publicly display their work.',
+            'lease': 'A lease should include: parties, property description, rental amount, term, maintenance responsibilities, and eviction procedures. Both parties must sign.',
+            'dispute': 'Dispute resolution methods: negotiation, mediation (third-party facilitator), arbitration (binding decision), or litigation (court). Choose based on your situation.'
+        };
+
+        function askQuestion(question) {
+            document.getElementById('userInput').value = question;
+            sendMessage();
+        }
+
+        function sendMessage() {
+            const userInput = document.getElementById('userInput').value.trim();
+            if (!userInput) return;
+
+            // Display user message
+            const chatDisplay = document.getElementById('chatDisplay');
+            const userMessage = document.createElement('div');
+            userMessage.className = 'message user-message';
+            userMessage.textContent = userInput;
+            chatDisplay.appendChild(userMessage);
+
+            // Find matching response
+            let response = "I appreciate the question, citizen. Please consult with a qualified legal professional for specific advice. THE JUSTICE provides general legal information only.";
+            
+            const lowerInput = userInput.toLowerCase();
+            for (const [key, value] of Object.entries(legalQA)) {
+                if (lowerInput.includes(key)) {
+                    response = value;
+                    break;
+                }
+            }
+
+            // Display bot response
+            const botMessage = document.createElement('div');
+            botMessage.className = 'message bot-message';
+            botMessage.textContent = '⚖️ ' + response;
+            chatDisplay.appendChild(botMessage);
+
+            // Clear input
+            document.getElementById('userInput').value = '';
+            
+            // Scroll to bottom
+            chatDisplay.scrollTop = chatDisplay.scrollHeight;
+        }
+
+        function handleKeyPress(event) {
+            if (event.key === 'Enter') {
+                sendMessage();
+            }
+        }
+    </script>
+</body>
+</html>
